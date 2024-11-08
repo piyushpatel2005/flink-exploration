@@ -15,7 +15,7 @@ repositories {
 }
 
 ext {
-    javaVersion = '17'
+    javaVersion = '11'
     flinkVersion = '1.17.2'
     scalaBinaryVersion = '2.12'
     slf4jVersion = '1.7.32'
