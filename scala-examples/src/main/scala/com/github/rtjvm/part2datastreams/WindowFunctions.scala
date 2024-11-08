@@ -1,6 +1,6 @@
 package com.github.rtjvm.part2datastreams
 
-import com.github.rtjvm.gaming.{PlayerRegistered, ServerEvent, alice, bob, carl, mary, rob, sam}
+import com.github.rtjvm.gaming._
 import org.apache.flink.api.common.eventtime.{SerializableTimestampAssigner, WatermarkStrategy}
 import org.apache.flink.api.common.functions.AggregateFunction
 import org.apache.flink.streaming.api.scala._

@@ -1,0 +1,34 @@
+ext {
+    javaVersion = '11'
+    flinkVersion = '1.17.2'
+    scalaVersion = '2.12.18'
+    scalaBinaryVersion = '2.12'
+    slf4jVersion = '1.7.32'
+    log4jVersion = '2.17.1'
+    postgresqlVersion = '42.2.23'
+    connectorVersion = '3.2.0-1.19'
+
+    libs = [
+            scala: "org.scala-lang:scala-library:${scalaVersion}",
+            flinkCore: [
+                    "org.apache.flink:flink-clients:${flinkVersion}",
+                    "org.apache.flink:flink-core:${flinkVersion}"
+            ],
+            flinkJava: [
+                    "org.apache.flink:flink-java:${flinkVersion}"
+            ],
+            flinkScala: [
+                    "org.apache.flink:flink-scala_${scalaBinaryVersion}:${flinkVersion}",
+                    "org.apache.flink:flink-streaming-scala_${scalaBinaryVersion}:${flinkVersion}"
+            ],
+            flinkFiles: "org.apache.flink:flink-connector-files:${flinkVersion}",
+            flinkKafka: "org.apache.flink:flink-connector-kafka:${connectorVersion}",
+            flinkJdbc: [
+                    "org.apache.flink:flink-connector-jdbc:${connectorVersion}",
+                    "org.postgresql:postgresql:${postgresqlVersion}"
+            ],
+            flinkCassandra: "org.apache.flink:flink-connector-cassandra_${scalaBinaryVersion}:${connectorVersion}",
+
+    ]
+}
+

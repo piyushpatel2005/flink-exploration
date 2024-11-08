@@ -37,7 +37,7 @@ object EssentialStreams {
     env.setParallelism(2)
     println(s"New parallelism : ${env.getParallelism}")
     val doubleNumbers = numbers.map(_ * 2)
-//    doubleNumbers.print()
+    //    doubleNumbers.print()
 
     // flatMap
     val expandedNumbers: DataStream[Int] = numbers.flatMap(num => List(num, num + 1))
@@ -46,7 +46,7 @@ object EssentialStreams {
     // You can set parallelism on DataStream level using setParallelism
     finalData.setParallelism(1)
     val evenNumbers: DataStream[Int] = numbers.filter(_ % 2 == 0).setParallelism(2)
-//    evenNumbers.print()
+    //    evenNumbers.print()
 
     env.execute()
   }
@@ -60,41 +60,41 @@ object EssentialStreams {
    * - print the numbers for which you said "fizzbuzz" to a file
    * @param args
    */
-    case class FizzBuzzResult(number: Long, result: String)
-    def fizzBuzz(): Unit = {
-      val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+  case class FizzBuzzResult(number: Long, result: String)
+  def fizzBuzz(): Unit = {
+    val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
-      val numbers = env.fromSequence(1, 100)
-      val fizzbuzz: DataStream[FizzBuzzResult] = numbers.map({ n =>
-        val output: String = if (n % 3 == 0 && n % 5 == 0) "fizzbuzz"
-        else if (n % 3 == 0) "fizz"
-        else if (n % 5 == 0) "buzz"
-        else n.toString
-        FizzBuzzResult(n, output)
-      })
+    val numbers = env.fromSequence(1, 100)
+    val fizzbuzz: DataStream[FizzBuzzResult] = numbers.map({ n =>
+      val output: String = if (n % 3 == 0 && n % 5 == 0) "fizzbuzz"
+      else if (n % 3 == 0) "fizz"
+      else if (n % 5 == 0) "buzz"
+      else n.toString
+      FizzBuzzResult(n, output)
+    })
 
-      val fizzBuzzNumbers: DataStream[Long] = fizzbuzz.filter(_.result == "fizzbuzz")
-        .map(_.number)
-        .setParallelism(1)
+    val fizzBuzzNumbers: DataStream[Long] = fizzbuzz.filter(_.result == "fizzbuzz")
+      .map(_.number)
+      .setParallelism(1)
 
-//      fizzBuzzNumbers.writeAsText("src/main/resources/output/fizzbuzz")
-//        .setParallelism(1)
+    //      fizzBuzzNumbers.writeAsText("src/main/resources/output/fizzbuzz")
+    //        .setParallelism(1)
 
-      // add a sink for replacement of writeAsText
-      // older version before 1.13
-//      fizzbuzz.addSink(
-//        StreamingFileSink.forRowFormat[String](
-//          new org.apache.flink.core.fs.Path("src/main/resources/output/fizzbuzz_sink"),
-//          new SimpleStringEncoder[String]("UTF-8")
-//        ).build()
-//      )
-      val sink = FileSink.forRowFormat(
-        new org.apache.flink.core.fs.Path("src/main/resources/output/fizzbuzz"),
-        new SimpleStringEncoder[Long]("UTF-8")
-      ).build()
-      fizzBuzzNumbers.sinkTo(sink).setParallelism(1)
-      env.execute()
-    }
+    // add a sink for replacement of writeAsText
+    // older version before 1.13
+    //      fizzbuzz.addSink(
+    //        StreamingFileSink.forRowFormat[String](
+    //          new org.apache.flink.core.fs.Path("src/main/resources/output/fizzbuzz_sink"),
+    //          new SimpleStringEncoder[String]("UTF-8")
+    //        ).build()
+    //      )
+    val sink = FileSink.forRowFormat(
+      new org.apache.flink.core.fs.Path("src/main/resources/output/fizzbuzz"),
+      new SimpleStringEncoder[Long]("UTF-8")
+    ).build()
+    fizzBuzzNumbers.sinkTo(sink).setParallelism(1)
+    env.execute()
+  }
 
   def explicitTransformations(): Unit = {
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
@@ -143,9 +143,9 @@ object EssentialStreams {
   }
 
   def main(args: Array[String]): Unit = {
-//    applicationTemplate()
-//    demoTransofrmations()
-//    fizzBuzz()
+    //    applicationTemplate()
+    //    demoTransofrmations()
+    //    fizzBuzz()
     explicitTransformations()
   }
 }

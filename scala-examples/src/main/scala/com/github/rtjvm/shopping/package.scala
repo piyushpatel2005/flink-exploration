@@ -1,13 +1,10 @@
 package com.github.rtjvm
 
-import org.apache.flink.streaming.api.functions.source.{
-  RichParallelSourceFunction,
-  SourceFunction
-}
+import org.apache.flink.streaming.api.functions.source.{RichParallelSourceFunction, SourceFunction}
+import org.apache.flink.streaming.api.watermark.Watermark
 
 import java.util.UUID
 import scala.annotation.tailrec
-import org.apache.flink.streaming.api.watermark.Watermark
 
 /**
  * A package describing data types and generator functions for shopping cart events.

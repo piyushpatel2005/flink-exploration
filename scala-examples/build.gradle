@@ -1,0 +1,24 @@
+plugins {
+    id 'scala'
+}
+
+group = 'com.github.piyushpatel2005'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    compileOnly libs.scala
+    implementation libs.flinkCore
+    implementation libs.flinkScala
+    implementation libs.flinkFiles
+    implementation libs.flinkKafka
+    implementation libs.flinkJdbc
+    implementation libs.flinkCassandra
+}
+
+test {
+    useJUnitPlatform()
+}

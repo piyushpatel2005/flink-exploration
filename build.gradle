@@ -14,33 +14,33 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    javaVersion = '11'
-    flinkVersion = '1.17.2'
-    scalaBinaryVersion = '2.12'
-    slf4jVersion = '1.7.32'
-    log4jVersion = '2.17.1'
-    postgresqlVersion = '42.2.23'
-    connectorVersion = '3.2.0-1.19'
-}
+//ext {
+//    javaVersion = '11'
+//    flinkVersion = '1.17.2'
+//    scalaBinaryVersion = '2.12'
+//    slf4jVersion = '1.7.32'
+//    log4jVersion = '2.17.1'
+//    postgresqlVersion = '42.2.23'
+//    connectorVersion = '3.2.0-1.19'
+//}
 
-dependencies {
-    implementation "org.apache.flink:flink-clients:${flinkVersion}"
-    implementation "org.apache.flink:flink-core:${flinkVersion}"
-
-//    implementation "org.apache.flink:flink-java:${flinkVersion}"
-    implementation "org.apache.flink:flink-scala_${scalaBinaryVersion}:${flinkVersion}"
-
-//    implementation "org.apache.flink:flink-streaming-java:${flinkVersion}"
-    implementation "org.apache.flink:flink-streaming-scala_${scalaBinaryVersion}:${flinkVersion}"
-
-    implementation "org.apache.flink:flink-connector-files:${flinkVersion}"
-    implementation "org.apache.flink:flink-connector-kafka:${connectorVersion}"
-    implementation "org.apache.flink:flink-connector-jdbc:${connectorVersion}"
-    implementation "org.apache.flink:flink-connector-cassandra_${scalaBinaryVersion}:${connectorVersion}"
-
-    implementation "org.postgresql:postgresql:${postgresqlVersion}"
-}
+//dependencies {
+//    implementation "org.apache.flink:flink-clients:${flinkVersion}"
+//    implementation "org.apache.flink:flink-core:${flinkVersion}"
+//
+////    implementation "org.apache.flink:flink-java:${flinkVersion}"
+//    implementation "org.apache.flink:flink-scala_${scalaBinaryVersion}:${flinkVersion}"
+//
+////    implementation "org.apache.flink:flink-streaming-java:${flinkVersion}"
+//    implementation "org.apache.flink:flink-streaming-scala_${scalaBinaryVersion}:${flinkVersion}"
+//
+//    implementation "org.apache.flink:flink-connector-files:${flinkVersion}"
+//    implementation "org.apache.flink:flink-connector-kafka:${connectorVersion}"
+//    implementation "org.apache.flink:flink-connector-jdbc:${connectorVersion}"
+//    implementation "org.apache.flink:flink-connector-cassandra_${scalaBinaryVersion}:${connectorVersion}"
+//
+//    implementation "org.postgresql:postgresql:${postgresqlVersion}"
+//}
 
 //sourceSets {
 //    main.compileClasspath += configurations.flinkShadowJar
@@ -53,17 +53,19 @@ dependencies {
 //}
 //run.classpath = sourceSets.main.runtimeClasspath
 
-jar {
-    manifest {
-        attributes 'Build-Jdk': System.getProperty('java.version')
-    }
-}
+//jar {
+//    manifest {
+//        attributes 'Build-Jdk': System.getProperty('java.version')
+//    }
+//}
 
 //shadowJar {
 //    configurations = [project.configurations.flinkShadowJar]
 //    archiveClassifier.set('fat')
 //}
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
+
+apply from: file('gradle/libraries.gradle')
