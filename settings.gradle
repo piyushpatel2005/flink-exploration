@@ -1,2 +1,3 @@
 rootProject.name = 'flink-exploration'
+include 'java-examples'
 
