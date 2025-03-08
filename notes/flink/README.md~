@@ -7,6 +7,4 @@ This repository contains tutorials for Apache Flink. The tutorials are organized
 - [Introduction](introduction/index.md)
 - [Architecture](architecture/index.md)
 - [Dataset API](dataset-api/index.md)
-- [DataStream Word Count](datastream-api-batch/index.md)
-- [DataStream Streaming Word Count](datastream-api-streaming/index.md)
 - [First Flink Job](setup-flink-job/index.md)

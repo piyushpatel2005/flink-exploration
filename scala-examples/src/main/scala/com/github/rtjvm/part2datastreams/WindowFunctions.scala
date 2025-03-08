@@ -293,7 +293,7 @@ object WindowFunctions {
   def main(args: Array[String]): Unit = {
 //    demoCountByWindow()
 //    demoCountByWindowV2()
-//    demoCountByWindowV3()
+    demoCountByWindowV3()
 
 //    demoCountByTypeByWindow()
 //    demoCountByTypeByWindowV2()
@@ -304,6 +304,6 @@ object WindowFunctions {
 
 //    demoGlobalWindow()
 
-    windowFunctionsExercise()
+//    windowFunctionsExercise()
   }
 }

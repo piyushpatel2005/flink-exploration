@@ -12,12 +12,17 @@ Stream processing is the processing of data in real-time or near real-time. Here
 
 ## Features
 
-- *Open Source*: Apache Flink is an open source project.
-- Connectors: Flink has connectors for many systems such as Kafka, Kinesis, and Elasticsearch.
+- Apache Flink is an open source project with many contributors contributing to the project.
+- Flink has connectors for many systems such as Kafka, Kinesis, JDBC, Kinesis, filesystems and Elasticsearch.
 - Event time processing: Flink has support for event time processing.
 - True streaming: Flink has true streaming semantics.
 - Exactly once processing: Flink has support for exactly once processing.
-- Speed: It provides very low latency with upto millisecond processing time.
-- Fault tolerance: Flink provides fault tolerance with state checkpoints and recovery.
-- Stateful processing: Flink provides support for stateful processing.
-- Windowing: Flink provides support for windowing operations.
+- It provides very low latency with upto millisecond processing time.
+- Flink provides fault tolerance with state checkpoints and recovery.
+- Flink provides support for stateful processing.
+- Flink implements its own custom memory manager which stores data efficiently. The user data is stored in 
+  serialized bytes in the JVM.
+- Flink has dedicated support for iterative operations.
+- Flink has unified data models for batch and stream processing.
+- Flink provides support for windowing operations.
+- Flink provides embedded execution environment for local development to learn and to test your code locally.
